@@ -18,4 +18,24 @@ public class HomeController : Controller
         return View();
     }
 
+    public void Insert(TodoItem todo)
+    {
+        using(SqliteConnection con = new SqliteConnection("Data Source=db.sqlite"))
+        {
+            using(var tableCmd = con.CreateCommand())
+            {
+                con.Open();
+                tableCmd.CommandText = $"INSERT INTO todo (name) VALUES ('{todo.Name}')";
+                try
+                {
+                    tableCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+    }
+
 }
