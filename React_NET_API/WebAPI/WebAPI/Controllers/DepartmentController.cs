@@ -43,27 +43,37 @@ namespace WebAPI.Controllers
         [HttpPost]
         public JsonResult Post(Department dep)
         {
-            string query = @"insert into dbo.Department values('" + dep.DepartmentName + @"') ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                string query = @"insert into dbo.Department values('" + dep.DepartmentName + @"') ";
+                DataTable table = new DataTable();
+                string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+                SqlDataReader myReader;
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-                    myReader.Close();
-                    myCon.Close();
+                    myCon.Open();
+                    using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                    {
+                        myReader = myCommand.ExecuteReader();
+                        table.Load(myReader);
+                        myReader.Close();
+                        myCon.Close();
+                    }
                 }
-            }
 
-            return new JsonResult("Added Successfully");
+                return new JsonResult("Added Successfully");
+
+               
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult($"Error: {ex.Message}");
+            }
+            
         }
 
 
-        [HttpPut]
+        /*[HttpPut]
         public JsonResult Put(Department dep)
         {
             string query = @"
@@ -88,7 +98,46 @@ namespace WebAPI.Controllers
 
             return new JsonResult("Update Successfully");
 
+        }*/
+        [HttpPut]
+        public IActionResult Put(Department dep)
+        {
+            try
+            {
+                string query = @"
+            UPDATE dbo.Department
+            SET DepartmentName = @DepartmentName
+            WHERE DepartmentId = @DepartmentId";
+
+                string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                    {
+                        myCommand.Parameters.AddWithValue("@DepartmentName", dep.DepartmentName);
+                        myCommand.Parameters.AddWithValue("@DepartmentId", dep.DepartmentId);
+
+                        int rowsAffected = myCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Update Successfully");
+                        }
+                        else
+                        {
+                            return BadRequest("Update Failed");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("An error occurred: " + ex.Message);
+            }
         }
+
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
@@ -113,7 +162,6 @@ namespace WebAPI.Controllers
             }
 
             return new JsonResult("Delete Successfully");
-
         }
 
     }
