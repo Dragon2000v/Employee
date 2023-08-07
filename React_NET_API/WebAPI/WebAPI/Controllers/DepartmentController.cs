@@ -9,6 +9,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class DepartmentController : ControllerBase
@@ -73,32 +74,7 @@ namespace WebAPI.Controllers
         }
 
 
-        /*[HttpPut]
-        public JsonResult Put(Department dep)
-        {
-            string query = @"
-                            update dbo.Department set
-                            DepartmentName = '" + dep.DepartmentName + @"'
-                            where DepartmentId = " + dep.DepartmentId + @"
-                            ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult("Update Successfully");
-
-        }*/
+      
         [HttpPut]
         public IActionResult Put(Department dep)
         {
@@ -165,4 +141,5 @@ namespace WebAPI.Controllers
         }
 
     }
+   
 }
