@@ -1,0 +1,52 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCore,Version=v4.5.2": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETCore,Version=v4.5.2": []
+  },
+  "packageFolders": {
+    "C:\\Users\\Shmat\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Prog\\React_NET_API\\Registration_for_the_conference\\Registration_for_the_conference\\Registration_for_the_conference.csproj",
+      "projectName": "Registration_for_the_conference",
+      "projectPath": "D:\\Prog\\React_NET_API\\Registration_for_the_conference\\Registration_for_the_conference\\Registration_for_the_conference.csproj",
+      "packagesPath": "C:\\Users\\Shmat\\.nuget\\packages\\",
+      "outputPath": "D:\\Prog\\React_NET_API\\Registration_for_the_conference\\Registration_for_the_conference\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Shmat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcore452"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcore452": {
+          "targetAlias": "netcore452",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcore452": {
+        "targetAlias": "netcore452",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

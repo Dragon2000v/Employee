@@ -1,0 +1,5 @@
+D:\Prog\React_NET_API\Registration_for_the_conference\Registration_for_the_conference\obj\Debug\net4.5.2\Registration_for_the_conference.csproj.AssemblyReference.cache
+D:\Prog\React_NET_API\Registration_for_the_conference\Registration_for_the_conference\obj\Debug\net4.5.2\Registration_for_the_conference.GeneratedMSBuildEditorConfig.editorconfig
+D:\Prog\React_NET_API\Registration_for_the_conference\Registration_for_the_conference\obj\Debug\net4.5.2\Registration_for_the_conference.AssemblyInfoInputs.cache
+D:\Prog\React_NET_API\Registration_for_the_conference\Registration_for_the_conference\obj\Debug\net4.5.2\Registration_for_the_conference.AssemblyInfo.cs
+D:\Prog\React_NET_API\Registration_for_the_conference\Registration_for_the_conference\obj\Debug\net4.5.2\Registration_for_the_conference.csproj.CoreCompileInputs.cache
